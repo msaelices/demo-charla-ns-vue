@@ -1,0 +1,8 @@
+{
+  "android": {
+    "v8Flags": "--expose_gc"
+  },
+  "main": "main",
+  "name": "demo-ns-vue-talk",
+  "version": "1.0.0"
+}
