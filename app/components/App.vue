@@ -11,7 +11,7 @@
             <StackLayout ~drawerContent backgroundColor="#ffffff">
                 <Label class="drawer-header" text="Drawer"/>
 
-                <Label class="drawer-item" text="Item 1"/>
+                <Label class="drawer-item" text="List Sample" @tap="goToListSample" />
                 <Label class="drawer-item" text="Item 2"/>
                 <Label class="drawer-item" text="Item 3"/>
             </StackLayout>
@@ -24,13 +24,21 @@
 </template>
 
 <script lang="ts">
+  import List from './List.vue';
+
   export default {
     data() {
       return {
         msg: 'Hello World!'
       }
-    }
-  }
+    },
+    methods: {
+      goToListSample () {
+        console.log('NOS VAMOS');
+        this.$navigateTo(List);
+      }
+    },
+  };
 </script>
 
 <style scoped>
