@@ -2,7 +2,8 @@ import Vue from 'nativescript-vue';
 import App from './components/App.vue';
 import VueDevtools from 'nativescript-vue-devtools';
 
-import List from './components/List.vue';
+import List from './components/ListPage.vue';
+import Reverse from './components/ReversePage.vue';
 
 if(TNS_ENV !== 'production') {
   Vue.use(VueDevtools);

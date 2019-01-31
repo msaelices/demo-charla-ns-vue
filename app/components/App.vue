@@ -11,8 +11,8 @@
             <StackLayout ~drawerContent backgroundColor="#ffffff">
                 <Label class="drawer-header" text="Drawer"/>
 
-                <Label class="drawer-item" text="List Sample" @tap="goToListSample" />
-                <Label class="drawer-item" text="Item 2"/>
+                <Label class="drawer-item" text="List Sample" @tap="goToListPage" />
+                <Label class="drawer-item" text="Reverse Sample" @tap="goToReversePage" />
                 <Label class="drawer-item" text="Item 3"/>
             </StackLayout>
 
@@ -24,7 +24,8 @@
 </template>
 
 <script lang="ts">
-  import List from './List.vue';
+  import ListPage from './ListPage.vue';
+  import ReversePage from './ReversePage.vue';
 
   export default {
     data() {
@@ -33,9 +34,11 @@
       }
     },
     methods: {
-      goToListSample () {
-        console.log('NOS VAMOS');
-        this.$navigateTo(List);
+      goToListPage () {
+        this.$navigateTo(ListPage);
+      },
+      goToReversePage () {
+        this.$navigateTo(ReversePage);
       }
     },
   };

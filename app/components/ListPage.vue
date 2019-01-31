@@ -12,7 +12,7 @@
 
 <script lang="ts">
   export default {
-    name: 'List',
+    name: 'ListPage',
     data () {
       return {
         items: [
