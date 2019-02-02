@@ -13,7 +13,7 @@
 
                 <Label class="drawer-item" text="List Sample" @tap="goToListPage" />
                 <Label class="drawer-item" text="Reverse Sample" @tap="goToReversePage" />
-                <Label class="drawer-item" text="Item 3"/>
+                <Label class="drawer-item" text="Tab Sample" @tap="goToTabPage" />
             </StackLayout>
 
             <GridLayout ~mainContent columns="*" rows="*">
@@ -25,6 +25,7 @@
 
 <script lang="ts">
   import ListPage from './ListPage.vue';
+  import TabPage from './TabPage.vue';
   import ReversePage from './ReversePage.vue';
 
   export default {
@@ -39,6 +40,9 @@
       },
       goToReversePage () {
         this.$navigateTo(ReversePage);
+      },
+      goToTabPage () {
+        this.$navigateTo(TabPage);
       }
     },
   };
