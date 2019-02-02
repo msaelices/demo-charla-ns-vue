@@ -3,7 +3,11 @@
     <StackLayout>
       <ListView for="item in items" @itemTap="onItemTap">
         <v-template>
-          <Label :text="item.text" />
+          <StackLayout orientation="horizontal">
+            <Image v-if="item.thumbnail"
+                   :src="item.thumbnail" stretch="none" class="m-5" />
+            <Label :text="item.title" class="m-5" />
+          </StackLayout>
         </v-template>
       </ListView>
     </StackLayout>
@@ -11,24 +15,13 @@
 </template>
 
 <script lang="ts">
+  import { fetch } from 'tns-core-modules/fetch';
+
   export default {
     name: 'ListPage',
     data () {
       return {
-        items: [
-          {
-            text: 'Item 1'
-          },
-          {
-            text: 'Item 2'
-          },
-          {
-            text: 'Item 3'
-          },
-          {
-            text: 'Item 4'
-          },
-        ],
+        items: [],
       };
     },
     methods: {
@@ -36,6 +29,21 @@
         const item = this.items[index];
         console.log(`"${item.text}" tapped`);
       }
+    },
+    created () {
+      fetch('https://www.reddit.com/r/all.json')
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          this.items = [];
+          data.data.children.forEach(item => {
+            this.items.push(item.data);
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 </script>
